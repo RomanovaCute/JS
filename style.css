@@ -3,6 +3,7 @@
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
     border: 3px solid #4e00c2;
+    border-radius: 15px;
     width: 900px;
     margin: 0 auto;
 }
