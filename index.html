@@ -6,13 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <script src="/calc.js"></script>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="buttons">
-        <button class="plus" onClick=fun_plus()>+</button>
-        <button class="minus" onClick=fun_minus()>-</button>
-        <button class="mult" onClick=fun_mult()>&times</button>
-        <button class="divide" onClick=fun_divide()>&divide</button>
+    <div class="container">
+        <div class="main">
+            <div class="title">
+                <h2>Самый простой на свете калькулятор</h2>
+                <div class="list">
+                    <span>1. Выберите действие</span>
+                    <span>2. Введите два числа</span>
+                </div>
+            </div>
+            <div class="main">
+                <div class="buttons">
+                    <button class="plus" onClick=fun_plus()>+</button>
+                    <button class="minus" onClick=fun_minus()>-</button>
+                    <button class="mult" onClick=fun_mult()>&times</button>
+                    <button class="divide" onClick=fun_divide()>&divide</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
