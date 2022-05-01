@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    border: 3px solid #d42d99;
+    border-radius: 15px;
+    width: 900px;
+    margin: 0 auto;
+    flex-direction: column;
+}
+.container_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 15px;
+}
+.container_subtitle{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.container_subtitle :not(:last-child){
+    margin-bottom: 5px;
+}
+button{
+    border-radius: 10px;
+    border: none;
+    padding: 15px 35px 15px 35px;
+    cursor: pointer;
+}
+.text{
+    font-family: 'Montserrat',sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+    
+    background-image: 
+        linear-gradient(
+            transparent 0%,
+            transparent 90%,
+            hotpink 90%,
+            hotpink 100%
+        );
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+
+    transition: 600ms;
+}
+.text:hover{
+    background-size: 100% 100%;
+    background-position-x: left;
+}
