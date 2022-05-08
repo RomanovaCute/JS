@@ -1,4 +1,10 @@
 function createForm(){
-    let name=prompt("Введите имя: ");
-    alert(`Привет, ${name}!`);
+    let name = document.getElementById('enter').value;
+    document.getElementById('hello').value = (`Привет, ${name}!`);
 }
+
+
+// function createForm(){
+//     let name=prompt("Введите имя: ");
+//     alert(`Привет, ${name}!`);
+// }
