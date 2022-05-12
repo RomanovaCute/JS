@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    background-image: url(/images/kyle-bushnell-Zi3Pt6lW1eo-unsplash.jpg);
+    background-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: aliceblue;
+}
+.container{
+    margin: 0.5% auto;
+    width: 33%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /*Плашка*/
+    position: relative;
+    place-items: center;
+    z-index: 1;
+    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    border-radius: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+p{
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+h2{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.container__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container__button{
+    display: flex;
+    justify-content: center;
+}
+.form-personal, .form-contacts{
+    width: 100%;
+    grid-gap: 10px;
+}
+input, select{
+    padding: 10px;
+    width: 95%;
+    background-color: #e6e3e17d;
+    border-radius: 7px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-family: inherit;
+    border: 1px;
+}
+input, select:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+button{
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    font-weight: 500;
+    font-family: inherit;
+    border: 1px;
+    cursor: pointer;
+    margin-top: 49px;
+    margin-bottom: 20px;
+}
+
+#errorMessage1, #errorMessage2,#errorMessage3,#errorMessage4,#errorMessage5,#errorMessage6{
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello!</title>
+    <link rel="stylesheet" href="/stylesheet.css"/>
+    <link rel="normalize" href="/normalize.css"/>
+    <link rel="shortcut icon" href="/images/log-in.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="container__form">
+            <div class="container__form form-personal">
+                <h2>Персональная информация</h2>
+                <div class="form-personal name">
+                    <p>Имя:</p>
+                    <input type="text" id="name" placeholder="Иван"/>
+                    <div id="errorMessage1"></div>
+                </div>
+                <div class="form-personal surname">
+                    <p>Фамилия:</p>
+                    <input type="text" id="surname" placeholder="Иванов"/>
+                    <div id="errorMessage2"></div>
+                </div>
+                <div class="form-personal lastname">
+                    <p>Отчество (при наличии):</p>
+                    <input type="text" id="lastname" placeholder="Иванович"/>
+                </div>
+            </div>
+            <div class="container__form form-contacts">
+                <h2>Контактная информация</h2>
+                <div class="form-contacts country">
+                    <p>Страна:</p>
+                    <select id="country">
+                        <option selected>Не выбрано</option>
+                        <option>Соединенные Штаты Америки</option>
+                        <option>Австралия</option>
+                        <option>Бразилия</option>
+                        <option>Великобритания</option>
+                        <option>Германия</option>
+                        <option>Канада</option>
+                        <option>Франция</option>
+                        <option>Китай</option>
+                        <option>Япония</option>
+                        <option>Россия</option>
+                        <option>Индия</option>
+                    </select>
+                    <div id="errorMessage3"></div>
+                </div>
+                <div class="form-contacts number">
+                    <p>Номер телефона:</p>
+                    <input type="number" id="phone" placeholder="+7 (000) 00-00-000"/>
+                    <div id="errorMessage4"></div>
+                </div>
+                <div class="form-contacts email">
+                    <p>Электронная почта:</p>
+                    <input type="email" id="email" placeholder="example@mail.com"/>
+                    <div id="errorMessage5"></div>
+                </div>
+                <div class="form-contacts password">
+                    <p>Пароль:</p>
+                    <input type="password" id="password"/>
+                    <div id="errorMessage6"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container__button">
+            <button onClick="checkIt()">Зарегистрироваться</button>
+        </div>
+    </div>
+
+    <script src="/index.js"></script>
+</body>
+</html>
