@@ -22,10 +22,17 @@ function fun_mult(){
 function fun_divide(){
     let a = Number(document.getElementById("calc1").value);
     let b = Number(document.getElementById("calc2").value);
-    let result = a/b;
-    document.getElementById('result').value = result;
-}
 
+    if(b == 0){
+        let badresult = 'На ноль делить нельзя!';
+        document.getElementById('result').value = badresult;
+    }
+
+        else {
+            let result = a/b;
+            document.getElementById('result').value = result;
+        }
+    }
 
 // function fun_plus(){
 //     let num1=prompt("Введите первое слагаемое: ");
