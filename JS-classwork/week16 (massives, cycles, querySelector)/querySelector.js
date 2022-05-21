@@ -22,10 +22,24 @@ for(let element of elements3){
 }
 
 
-//querySelector
+querySelector
 let elements5 = document.querySelector(".item");
 console.log(elements5);
 
 for(let element of elements5){
     console.log(element.classList);
 }
+
+
+let elements4 = document.querySelectorAll("input");
+console.log(elements4);
+
+for (let element of elements4){
+    console.log(element.classList);
+}
+
+let arr = ["a", "b"];
+
+arr.push(function() {
+    alert(arr);
+})
