@@ -1,0 +1,67 @@
+body{
+    margin: 0; /*так, конечно, не делают, но...*/
+}
+.main{
+    width: 1400px;
+    margin: 0 auto;
+}
+.main_select{
+    display: flex;
+    flex-direction: column;
+    padding-left: 175px;
+    font-family: 'Jost', sans-serif;
+    color: rgb(84, 83, 83);
+}
+h1{
+    font-family: 'Jost', sans-serif;
+    font-size: 60px;
+    margin: 10px 0 5px 0;
+    color: black;
+}
+h4{
+    margin-bottom: 10px;
+}
+#result{
+    font-family: 'Jost', sans-serif;
+    color: black;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+#displacement, #power, #mileage{
+    width: 665px;
+    height: 42px;
+    padding: 5px 0 5px 15px;
+    border-radius: 5px;
+    border: 0.5px solid rgb(84, 83, 83);
+    opacity: 50%;
+}
+select{
+    width: 685px;
+    height: 55px;
+    padding: 5px 0 5px 15px;
+    border-radius: 5px;
+    border: 0.5px solid rgb(84, 83, 83);
+    opacity: 50%;
+    color: black;
+}
+input{
+    margin-bottom: 10px;
+}
+button{
+    background-color: green;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    width: 55.6%;;
+    height: 50px;
+    border: 1px solid green;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.transmission-input, .wheel-input, .engine-input, .body-input{
+    width: 20px;
+    height: 20px;
+    
+}

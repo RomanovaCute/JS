@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car calculator</title>
+    <link rel="stylesheet" href="/stylesheet.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <div class="main">
+
+        <div class="main_select">
+            <h1>Сколько стоит автомобиль?</h1>
+            <div class="main_select__brand">
+                <h4>Марка автомобиля</h4>
+                <select id="brand">
+                    <option value="0">Не выбрано</option>
+                    <option value="1000">Lada (ВАЗ)</option>
+                    <option value="6000">Audi</option>
+                    <option value="6000">BMW</option>
+                    <option value="4000">Chery</option>
+                    <option value="5000">Ford</option>
+                    <option value="3000">Hyundai</option>
+                    <option value="3000">KIA</option>
+                    <option value="7000">Land Rover</option>
+                    <option value="9000">Mercedes-Benz</option>
+                    <option value="9000">MINI</option>
+                    <option value="10000">Porsche</option>
+                    <option value="2000">Renault</option>
+                    <option value="5000">Skoda</option>
+                    <option value="7000">Toyota</option>
+                    <option value="6000">Volkswagen</option>
+                    <option value="8000">Volvo</option>
+                </select>
+                
+            </div>
+            <div class="main_select__year">
+                <h4>Год выпуска:</h4>
+                <select id="year">
+                    <option value="0">Не выбрано</option>
+                    <option value="0">2007</option>
+                    <option value="0">2008</option>
+                    <option value="0">2009</option>
+                    <option value="0">2010</option>
+                    <option value="0">2011</option>
+                    <option value="0">2012</option>
+                    <option value="0">2013</option>
+                    <option value="0">2014</option>
+                    <option value="150">2015</option>
+                    <option value="150">2016</option>
+                    <option value="200">2017</option>
+                    <option value="200">2018</option>
+                    <option value="300">2019</option>
+                    <option value="400">2020</option>
+                    <option value="500">2021</option>
+                    <option value="500">2022</option>
+                </select>
+            </div>
+            <div class="main_select__body">
+            <h4>Тип кузова:</h4>
+                <label class="check-label">
+                    <input type="radio" class="body-input" name="bodycar" id="radio-body1" value="0">   
+                    Седан
+                </label>
+                <label class="check-body">
+                    <input type="radio" class="body-input" name="bodycar" id="radio-body2" value="100">
+                    Хэтчбэк
+                </label>
+                <label class="check-body">
+                    <input type="radio" class="body-input" name="bodycar" id="radio-body3" value="100">
+                    Купе
+                </label>
+                <label class="check-body">
+                    <input type="radio" class="body-input" name="bodycar" id="radio-body4" value="300">
+                    Универсал
+                </label>
+                <label class="check-body">
+                    <input type="radio" class="body-input" name="bodycar" id="radio-body5" value="100">
+                    Лифтбек
+                </label>
+            </div>
+            <div class="main_select__engine">
+                <h4>Тип двигателя:</h4>
+                    <label for="check-engine">
+                        <input type="radio" class="engine-input" name="engine" id="radio-engine1" value="0">
+                        Бензин
+                    </label>
+                    <label for="check-engine">
+                        <input type="radio" class="engine-input" name="engine" id="radio-engine2" value="20">
+                        Дизель
+                    </label>
+                    <label for="check-engine">
+                        <input type="radio" class="engine-input" name="engine" id="radio-engine3" value="70">
+                        Газ
+                    </label>
+                    <label for="check-engine">
+                        <input type="radio" class="engine-input" name="engine" id="radio-engine4" value="300">
+                        Электрический
+                    </label>
+            </div>
+            <div class="main_select__displacement">
+                <h4>Объем двигателя, л</h4>
+                <input type="text" id="displacement" placeholder="Объем двигателя, л">
+            </div>
+            <div class="main_select__power">
+                <h4>Мощность двигателя, л.с.</h4>
+                <input type="text" id="power" placeholder="Мощность двигателя, л.с.">
+            </div>
+            <div class="main_select__wheel drive">
+                <h4>Тип привода:</h4>
+                <label for="check-wheel">
+                    <input type="radio" class="wheel-input" name="wheel" id="radio-wheel1" value="0">
+                    Передний
+                </label>
+                <label for="check-wheel">
+                    <input type="radio" class="wheel-input" name="wheel" id="radio-wheel2" value="0">
+                    Задний
+                </label>
+                <label for="check-wheel">
+                    <input type="radio" class="wheel-input" name="wheel" id="radio-wheel3" value="500">
+                    Полный
+                </label>
+            </div>
+            <div class="main_select__transmission">
+                <h4>Тип коробки передач:</h4>
+                <label for="check-transmission">
+                    <input type="radio" class="transmission-input" name="transmission" id="radio-transmission1" value="0">
+                    Механика
+                </label>
+                <label for="check-transmission">
+                    <input type="radio" class="transmission-input" name="transmission" id="radio-transmission2" value="100">
+                    Автомат
+                </label>
+                <label for="check-transmission">
+                    <input type="radio" class="transmission-input" name="transmission" id="radio-transmission3" value="150">
+                    Роботизированная
+                </label>
+                <label for="check-transmission">
+                    <input type="radio" class="transmission-input" name="transmission" id="radio-transmission4" value="100">
+                    Вариатор
+                </label>
+            </div>
+            <div class="main_select__mileage">
+                <h4>Пробег, км</h4>
+                <input type="text" id="mileage" placeholder="Пробег, км">
+            </div>
+            <button onclick="calcPrice()">Рассчитать</button>
+            <div id="result"></div>
+        </div>
+    </div>
+    
+
+    <script src="./index.js"></script>
+</body>
+</html>
