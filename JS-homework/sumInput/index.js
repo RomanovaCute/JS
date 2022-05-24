@@ -29,3 +29,4 @@ function sumInput(){
     }
     arraySum.innerHTML = temp;
 }
+button.addEventListener('click',sumInput);
