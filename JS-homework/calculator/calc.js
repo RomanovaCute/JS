@@ -1,21 +1,21 @@
 function fun_plus(){
     let a = Number(document.getElementById("calc1").value);
     let b = Number(document.getElementById("calc2").value);
-    let result = a+b;
+    result = a+b;
     document.getElementById('result').value = result;
 }
 
 function fun_minus(){
     let a = Number(document.getElementById("calc1").value);
     let b = Number(document.getElementById("calc2").value);
-    let result = a-b;
+    result = a-b;
     document.getElementById('result').value = result;
 }
 
 function fun_mult(){
     let a = Number(document.getElementById("calc1").value);
     let b = Number(document.getElementById("calc2").value);
-    let result = a*b;
+    result = a*b;
     document.getElementById('result').value = result;
 }
 
@@ -29,10 +29,15 @@ function fun_divide(){
     }
 
         else {
-            let result = a/b;
+            result = a/b;
             document.getElementById('result').value = result;
         }
     }
+
+    clickplus.addEventListener('click',fun_plus);
+    clickminus.addEventListener('click',fun_minus);
+    clickmult.addEventListener('click',fun_mult);
+    clickdivide.addEventListener('click',fun_divide);
 
 // function fun_plus(){
 //     let num1=prompt("Введите первое слагаемое: ");
