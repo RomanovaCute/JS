@@ -23,5 +23,7 @@
     }
     result.innerHTML = temp + " " + "тыс. руб";
     }
+
+    button.addEventListener('click',calcPrice);
     
 
