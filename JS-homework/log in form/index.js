@@ -55,3 +55,4 @@ function checkIt(){
     alert ('Региcтрация прошла успешно!');
     }
 }
+button.addEventListener('click',checkIt);
