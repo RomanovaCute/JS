@@ -4,8 +4,14 @@ console.log(array[1]);
 
 //Вопрос №2
 let array1 = [0, 1, false, 2, undefined, '', 3, null];
-let filteredArray = array1.filter(el=>el !== false && el !== undefined && el !== '' && el !==null && el !== 0);
-console.log(filteredArray);
+
+//Первый способ
+let filteredArray1 = array1.filter(el=>el !== false && el !== undefined && el !== '' && el !==null && el !== 0);
+console.log(filteredArray1);
+
+//Второй способ
+let filteredArray2 = array1.filter(item => Boolean(item));
+console.log(filteredArray2);
 
 //Вопрос №3
 let arrays = [
