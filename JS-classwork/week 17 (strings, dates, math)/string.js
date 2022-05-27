@@ -60,3 +60,19 @@ console.log(clean);
 
 //Со строками такое действие не сработает!!!
 name[0] = "Б";
+
+//Перенос строки с помощью \n
+let test1 = "Мы компания \n Google";
+console.log(test1);
+
+let test2 = "катя";
+let testname = test2[0].toLocaleUpperCase();
+console.log(testname);
+
+//Удаление элемента с конца строки
+function currency(num){
+    let enter = prompt("num: ");
+    console.log(enter.slice(0, -1));
+}
+
+button.addEventListener('click',currency);
