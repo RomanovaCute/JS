@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F.I.O</title>
+    <style>
+        .userinfo{
+            margin-bottom: 15px;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+        }
+        .box>label{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="userinfo">
+        <label>Ф.И.О.
+            <input id="userName" placeholder="Петров Петр Петрович">
+        </label>
+        <button id="button">Отправить</button>
+    </div>
+
+    <div class="box">
+        
+        <label>Фамилия:
+            <input type="text" id="surname" placeholder="Петров" disabled>
+        </label>
+        <label>Имя:
+            <input type="text" id="name" placeholder="Петр" disabled>
+        </label>
+            <label>Отчество:
+        <input type="text" id="patronymic" placeholder="Петрович" disabled>
+        </label>
+    </div>
+
+   
+    <script src="./script.js"></script>
+</body>
+</html>
