@@ -34,3 +34,13 @@ console.log[new Date().toLocaleString("ru",options)];
 //3600 - получаем часы
 let diff = Date.now() - date;
 console.log(diff/1000/3600);
+
+//Сколько секунд осталось до завтра:
+let today = new Date(), //сегодняшняя дата
+    tomorrow = new Date(); //завтрашняя дата
+
+tomorrow.setDate(today.getDate() + 1); //завтрашнее число
+tomorrow.setHours(0,0,0,0); //завтрашнее время
+
+let difftime = (Math.round((tomorrow - today) / 1000));
+console.log(difftime);

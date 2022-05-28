@@ -33,13 +33,3 @@ console.log(testname);
 
 let num1 = new Date(2021,0,24,22,51);
 console.log(num1);
-
-// let todaydate = new Date();
-// let tomorrowdate = new Date(todaydate.getFullYear(),todaydate.getMonth(),todaydate.getDay()+1);
-// let diffdate = todaydate - todaydate;
-// console.log(Math.round(diffdate));
-
-// let nowww = new Date();
-// let difff = Date.now() - nowww;
-// console.log(difff/1000);
-
