@@ -36,7 +36,7 @@ function random(){
     document.querySelector('.mult').innerHTML = `Произведение чисел: ${mult}`;
 
     //Очистка массива
-    for (let index2 = 0; index2 < 10; index2++) {
+    for (let index2 = 0; index2 < nums.length; index2++) {
         nums.pop(nums[index2]);
     }
 
