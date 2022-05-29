@@ -17,7 +17,7 @@ function random(){
     min = Math.min.apply(Math, nums); //Минимальное значение из массива чисел
     max = Math.max.apply(Math, nums); //Максимальное число из массива
 
-    for(let index = 0; index<nums.length; index++){
+    for(let index = 0; index < nums.length; index++){
         sum += Number(nums[index]); //Находим сумму элементов массива
     }
 
