@@ -17,7 +17,7 @@ function random(){
     min = Math.min.apply(Math, nums); //Минимальное значение из массива чисел
     max = Math.max.apply(Math, nums); //Максимальное число из массива
 
-    for(let index = 0; index < nums.length; index++){
+    for(let index = 0; index<nums.length; index++){
         sum += Number(nums[index]); //Находим сумму элементов массива
     }
 
@@ -36,11 +36,11 @@ function random(){
     document.querySelector('.mult').innerHTML = `Произведение чисел: ${mult}`;
 
     //Очистка массива
-    for (let index2 = 0; index2 < nums.length; index2++) {
+    for (let index2 = 0; index2 < 10; index2++) {
         nums.pop(nums[index2]);
     }
 
-    //Очистка значения суммы и произведения
+    // Очистка значения суммы и произведения
     sum = 0;
     mult = 1;
 }
