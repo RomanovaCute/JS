@@ -1,50 +1,25 @@
-let array = [];
-
 function fixName(){
 
-    let userName = document.querySelector('input[id="userName"]');
-    let trimName = userName.value.trim(); //убираем пробелы
-    array = trimName.split(" "); //разделяем элементы массива на имя фамилию и отчество по отдельности
+    const inputs = document.querySelectorAll('.result-input'); 
+        array = document.querySelector('input[id="userName"]') //Забираем значение из инпута userName
+            .value
+            .trim()
+            .toLowerCase()
+            .split(" ");
+        // Эти действия можно сразу применить к value
     
-    //Фамилия
-    for(let i=0; i<array.length; i++){
-        if(array[i] !== ""){ //если элемент массива не пустая строка, то
-            arrayName = array[i].toLowerCase(); //приводим все буквы к нижнему регистру
-            correct(); //функция замены первой буквы на заглавную
-            document.querySelector('input[id="surname"]').value = correctName; //кладем в "Фамилию" полученное значение
-            array[i] = ""; //очищаем фамилию из массива
-            break;
-        }
-    }
+    for(let i = 0; i < inputs.length; i++){
+        const item = array[i];
 
-    //Имя - аналогично
-    for(let i=0; i<array.length; i++){
-        if(array[i] !== ""){
-            arrayName = array[i].toLowerCase();
-            correct();
-            document.querySelector('input[id="name"]').value = correctName;
-            array[i] = "";
-            break;
+        if (!item) { //Если значения в userName нет совсем, то выходим из функции
+            return;
         }
-    }
 
-    //Отчество - аналогично
-    for(let i=0; i<array.length; i++){
-        if(array[i] !== ""){
-            arrayName = array[i].toLowerCase();
-            correct();
-            document.querySelector('input[id="patronymic"]').value = correctName;
-            array[i] = "";
-            break;
-        }
+        inputs[i].value = item[0].toLocaleUpperCase() + item.slice(1);
     }
+    
     //Очищаем поле ввода
     document.querySelector('#userName').value = "";
-}
-    //Замена первой буквы на заглавную
-    function correct() {
-        correctName = arrayName[0].toLocaleUpperCase() + arrayName.slice(1); 
-        //задаем заглавную букву 0-го элемента + остальная часть элемента, начиная с индекса 1
 }
 
 button.addEventListener('click',fixName);
