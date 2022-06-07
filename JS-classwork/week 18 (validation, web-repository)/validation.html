@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:required:valid{
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Validation</h1>
+    <!-- novalidate - нужно длято того, чтобы не показывались сообщения о неправильно заполненом поле -->
+    <form novalidate> 
+        <div>
+            <input type="text" id="login" placeholder="логин" required>*
+        </div>
+        <div>
+            <input type="email" id="email" placeholder="email" required>*
+        </div>
+        <div>
+            <input type="number" id="number" max=100 min=1 placeholder="номер" required>*
+        </div>
+        <div>
+            <button id="button">OK</button>
+        </div>
+        <div id="errorsInfo"></div>
+    </form>
+    <script src="validation.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage</title>
+</head>
+<body>
+    <h1>localStorage</h1>
+    <div id="chat">
+
+    </div>
+
+    <form>
+        <div>
+            <label for="author">Имя*
+                <span id="authorErroe"></span>
+            </label>
+        </div>
+        <div>
+            <input type="text" name="author" id="author" value="" class="inputs">
+        </div>
+        <div>
+            <label for="comment">Комментарий
+                <span id="commentError"></span>
+            </label>
+        </div>
+        <div>
+            <textarea name="comment" id="comment" class="inputs"></textarea>
+        </div>
+        <div>
+            <input name="button" type="button" id="button" value="Отправить">
+        </div>
+    </form>
+
+    <script src="web-repository.js"></script>
+</body>
+</html>
