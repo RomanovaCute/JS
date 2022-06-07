@@ -1,19 +1,22 @@
-// let arr = [];
-let textString = '';
+const list = document.querySelector('#commentsList');
 
 function censor (){
-    let comment = document.querySelector('input[name="newComment"]').value;
-    let new1 = comment.replace(/viagra/g, '***');
-    let new2 = new1.replace(/xxx/g, '***');
-    // new2 += '\n';
-    // arr.unshift(new2 + '\r');
+    let comment = document.querySelector('input[name="newComment"]').value
+        .replace(/viagra/gi, '***')
+        .replace(/xxx/gi, '***');
 
-    textString = new2 + ' ' + textString +'\r\n';
+    // escape-последовательности применимы тольк внутри строки, например,
+    // 'строка1\n строка2\n строка3\n'
+    // но при конкатинации разных отедльных констант escape-последовательность не сработает
+    
+    const newListItem = document.createElement('div'); //создает <div></div>
+    newListItem.innerHTML = comment; //добавлет коммент. <div>текст</div>
 
-    // for (let i=0; i<arr.length; i++){
-       commentsList.innerHTML = textString; 
-       console.log(textString);
-    // }
+    // append - добавление наших созданных <div>текст</div> в конец
+    // prepend - добавление в начало списка
+    list.append(newListItem);
+
+    document.querySelector('input[name="newComment"]').value = '';
 }
 
-button.addEventListener('click', censor);
+document.querySelector('#button').addEventListener('click', censor);
