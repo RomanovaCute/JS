@@ -2,9 +2,25 @@ const input = document.querySelector('input'),
     button = document.querySelector('#button'),
     list = document.querySelector('#commentsList');
 
+let comments;
+
 document.addEventListener('DOMContentLoaded', () => {
-    const comments = getData();
+    comments = JSON.parse(localStorage.getItem('comments')) || [] ;
+    console.log(comments);
     
+    
+    // for(let i = 0; i<comments.length; i++){
+    //     const box = document.createElement('div');
+    //     box.innerHTML = comments[i];
+    //     list.append(box);
+    // }
+
+    // comments.forEach((element) => {
+    //     const box = document.createElement('div')
+    //     box.innerHTML = element
+    //     list.append(box)
+    // });
+
     comments.map(comment => {
         const box = document.createElement('div');
         box.innerHTML = comment;
@@ -14,30 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
 function setData(value){
-    localStorage.setItem('comments', JSON.stringify(comment.push(value)));
+    comments.push(value);
+    localStorage.setItem('comments', JSON.stringify(comments));
+    
 }
 
-function getData(){
-    return JSON.parse(localStorage.getItem('comments')) || [];
+function postComment(){
+    const value = input.value;
+    setData(value);
+
+    const newListItem = document.createElement('div');
+    newListItem.innerHTML = value;
+    list.append(newListItem);
 }
 
 button.addEventListener('click', postComment)
-
-function postComment(){
-    input.value;
-    const comment = getData();
-    
-    setData(input.value);
-}
-
-
-
-
-
-
-
-
 
 
 
