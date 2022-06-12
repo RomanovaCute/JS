@@ -38,9 +38,13 @@ function setData(value){
 }
 
 function postComment(){
-    const value = input.value;
+    const value = input.value
+            .replace(/viagra/gi, '***')
+            .replace(/xxx/gi, '***');
+            
     setData(value);
 
+    
     const newListItem = document.createElement('div');
     newListItem.innerHTML = value;
     list.append(newListItem);
