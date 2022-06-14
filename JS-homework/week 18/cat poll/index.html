@@ -35,30 +35,30 @@
         <form>
             <fieldset>
                 <legend><b>Кличка Вашего питомца:</b></legend>
-                <input type="text" name="name" id="name" pattern="/^[a-zA-Z]|[а-яА-Я]$/gm"  minlength="3" maxlength="20" required>
+                <input type="text" name="name" id="name" pattern="^[a-zA-Z]|+[а-яА-Я]$"  minlength="3" maxlength="20" required>
             </fieldset>
             <fieldset>
                 <legend><b>Контактная информация:</b></legend>
                 <div>
-                    <label for="name">Ваше Имя:</label>
-                    <input type="text" name="name" id="name" pattern="/[a-zA-Zа-яА-Я]/gm" minlength="0" maxlength="20" required></div>
+                    <label for="your-name">Ваше Имя:</label>
+                    <input type="text" name="name" id="your-name" pattern="^[a-zA-Z]|+[а-яА-Я]$" minlength="0" maxlength="20" required></div>
                 <div>
                     <label for="phone">Номер телефона:</label>
-                    <input type="text" name="phone" id="phone" pattern="/^\+d\(\d{3}\)\d{2}-\d{2}-\d{3}$/gm" required></div>
+                    <input type="text" name="phone" id="phone" pattern="^\+\d\(\d{3}\)\d{3}-\d{2}-\d{2}$" required></div>
             </fieldset>
             <fieldset>
                 <legend><b>Всё о Вашем питомце:</b></legend>
                 <ol>
                 <div>
                     <li><label for="sex">Пол:</label></li>
-                    <p><input type="radio" name="sex" value="1" required>Женский</p>
-                    <p><input type="radio" name="sex" value="2" required>Мужской</p>
+                    <p><input type="radio" name="sex" value="1" checked>Женский</p>
+                    <p><input type="radio" name="sex" value="2">Мужской</p>
                 </div>
                 <hr>
                 <div>
                     <li><label for="breed">Порода</label></li>
                     <select required>
-                        <option value="first option">Мейн-кун</option>
+                        <option value="first option" checked>Мейн-кун</option>
                         <option value="second option">Британская кошка</option>
                         <option value="third option">Сфинкс</option>
                         <option value="forty option">Сиамская кошка</option>
@@ -68,7 +68,7 @@
                     <hr>
                     <div>
                         <li><lable for="nutrition" required>Питание:</lable></li>
-                        <p><input type="checkbox" name="nutrition" value="1">Натуральный корм</p>
+                        <p><input type="checkbox" name="nutrition" value="1" checked>Натуральный корм</p>
                         <p><input type="checkbox" name="nutrition" value="2">Сухой корм</p>
                         <p><input type="checkbox" name="nutrition" value="3">Влажный корм</p>
                         <p><input type="checkbox" name="nutrition" value="4">Смешаное кормление</p>
@@ -76,7 +76,7 @@
                     <hr>
                 <div>
                     <li><label for="text">Расскажите о питомце больше:</label> </li> 
-                    <textarea name="text" rows="10" cols="30" pattern="/[a-zA-Z]|[а-яА-Я]/gm" minlength="0" maxlength="200"></textarea>
+                    <textarea name="text" rows="10" cols="30" pattern="[a-zA-Z]|[а-яА-Я]" minlength="0" maxlength="200"></textarea>
                 </div>
                 <hr>
                 <div>
