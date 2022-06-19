@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="shortcut icon" href="https://cdn-icons.flaticon.com/png/512/906/premium/906265.png?token=exp=1643475021~hmac=d350cac5e39d9ec8edbc8c5f0de5bd56">
+    <style>
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body style="background-color:#E6E6FA">
+    <header style="background-color: #ffffff;">
+        
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/6668/6668491.png" style="float: left;" alt="логотип" width="120" height="120">
+        </div>
+        <nav>
+            <ul>
+                <li><a style="text-align: center;" href="https://cattish.ru/breed/"><h2>Породы</h2></a></li>
+                <li><a style="text-align: center;" href="https://www.proplan.ru/cat/article/chem-kormit-koshku-v-domashnih-usloviyah/?utm_source=yandex&utm_medium=cpc&utm_campaign=dan_ru_purina_ppc_ru_ya_non_brand_br_kws_con_caring_cat_wellness_feeding&utm_term=питание%20домашних%20кошек&utm_content=ppc_Stext_pitanie%20domashnikh%20koshek%7Ck50id%7C0100000032860710498_%7Ccid%7C63514166%7Cgid%7C4625282953%7Caid%7C10912146817%7Cadp%7Cno%7Cpos%7Cpremium1%7Csrc%7Csearch_none%7Cdvc%7Cdesktop%7Cmain&k50id=0100000032860710498_&yclid=18017466353460969471"><h2>Питание</h2></a></li>
+                <li><a style="text-align: center;" href="https://www.bethowen.ru/club/advice/other/383942/"><h2>Уход</h2></a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        
+        <article><h3>Ответьте на вопросы:</h3>
+        <form>
+            <fieldset>
+                <legend><b>Кличка Вашего питомца:</b></legend>
+                <input type="text" name="name" id="nickname" pattern="^[a-zA-Z]|[а-яА-Я]+$"  minlength="3" maxlength="20" required>
+            </fieldset>
+            <fieldset>
+                <legend><b>Контактная информация:</b></legend>
+                <div>
+                    <label for="your-name">Ваше Имя:</label>
+                    <input type="text" name="name" id="name" pattern="^[a-zA-Z]|[а-яА-Я]+$" minlength="0" maxlength="20" required></div>
+                <div>
+                    <label for="phone">Номер телефона:</label>
+                    <input type="text" name="phone" id="phone" pattern="^\+\d\(\d{3}\)\d{3}-\d{2}-\d{2}$" required></div>
+            </fieldset>
+            <fieldset>
+                <legend><b>Всё о Вашем питомце:</b></legend>
+                <ol>
+                <div>
+                    <li><label for="sex">Пол:</label></li>
+                    <p><input type="radio" name="sex" value="male">Женский</p>
+                    <p><input type="radio" name="sex" value="female">Мужской</p>
+                </div>
+                <hr>
+                <div>
+                    <li><label for="breed">Порода</label></li>
+                    <select required>
+                        <option name="breed" value="Maine Coon">Мейн-кун</option>
+                        <option name="breed" value="British">Британская кошка</option>
+                        <option name="breed" value="Sphynx">Сфинкс</option>
+                        <option name="breed" value="Siamese">Сиамская кошка</option>
+                        <option name="breed" value="Pedigree">Беспородная</option>
+                    </select>
+                    </div>
+                    <hr>
+                    <div>
+                        <li><lable for="nutrition" required>Питание:</lable></li>
+                        <p><input type="checkbox" name="nutrition" value="Natural">Натуральный корм</p>
+                        <p><input type="checkbox" name="nutrition" value="Dry">Сухой корм</p>
+                        <p><input type="checkbox" name="nutrition" value="Wet">Влажный корм</p>
+                        <p><input type="checkbox" name="nutrition" value="Mix">Смешаное кормление</p>
+                    </div>
+                    <hr>
+                <div>
+                    <li><label for="text">Расскажите о питомце больше:</label> </li> 
+                    <textarea name="text" rows="10" cols="30" pattern="[a-zA-Z]|[а-яА-Я]" minlength="0" maxlength="200"></textarea>
+                </div>
+                <hr>
+                <div>
+                    <li><label for="photo">Добавьте фото:</label></li>
+                    <input type="file" name="photo">
+                </div>
+                </ol>
+            </fieldset>
+            <p align="center"><button id="button">Сохранить</button></p>
+        </form>
+        </article>
+    </main>
+    <footer>
+        <address style="background-color: #bab1cc;">
+        <p>Наши контакты:</p>
+        <p>Адрес: Школа ITGIRLSCHOOL, ул.Программирования-11111</p>
+        <p>Контактная информация:
+        <a href="mailto:romanova17romanova@yandex.ru">romanova17romanova@yandex.ru</a></p>
+        </address>
+    </footer>
+    </header>
+
+    <script src="index.js"></script>
+</body>
+</html>
