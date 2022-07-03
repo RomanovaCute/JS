@@ -1,24 +1,26 @@
-// function checkIt(){
-    // let check = true;
-    // let country = document.querySelector('#country').value;
-    
-    function checkIt(){
+
+
+function checkIt(){
         document.querySelector('#errorMessage1').innerHTML = '';
         document.querySelector('#errorMessage2').innerHTML = '';
         document.querySelector('#errorMessage3').innerHTML = '';
         document.querySelector('#errorMessage4').innerHTML = '';
         document.querySelector('#errorMessage5').innerHTML = '';
         document.querySelector('#errorMessage6').innerHTML = '';
+
+        
     }
+
+    let check;
 
     function validateName(){
         let name = document.querySelector('#name').value;
         let nameFormat = /^([А-Я]{1}[а-яё]{1,30}|[A-Z]{1}[a-z]{1,30})$/gm;
         if (nameFormat.test(name)){
-            return true;
+            return check = true;
         } else {
             document.querySelector('#errorMessage1').innerHTML += 'Ваше имя заполнено неверно';
-            return false;
+            return  check = false;
         }
     }
 
@@ -27,46 +29,24 @@
         let surname = document.querySelector('#surname').value;
         let surnameFormat = /^([А-Я]{1}[а-яё]{1,30}|[A-Z]{1}[a-z]{1,30})$/gm;
         if (surnameFormat.test(surname)){
-            return true;
+            return check = true;
         } else {
             document.querySelector('#errorMessage2').innerHTML += 'Ваша фамилия заполнена неверно';
-            return false;
+            return check = false;
         }
     }
-
-    function vidateCountry(){
-//         let country = document.querySelector('#country');
-//         country.forEach((sel) => {
-
-//             sel.addEventListener('change', () => {
-//             let countryNum = sel.selectedIndex;
-
-//             if(countryNum === 0){
-//                 document.querySelector('#errorMessage3').innerHTML += 'Ваша страна не выбрана!';
-//             }
-//         }
-//     )
-//     }
-// )
-  
-        if (document.querySelector('#country').value !== "0"){
-            return true;  
-        } else {
-            document.querySelector('#errorMessage3').innerHTML += 'Ваша страна не выбрана!';
-        }
-} 
 
     function validatePhoneNumber(){
         let phone = document.querySelector('#phone').value;
         let phoneFormat = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/gm;
         if (phoneFormat.test(phone)){
-            return true;
+            return check = true;
         } else if (phone == '') {
             document.querySelector('#errorMessage4').innerHTML += 'Заполните номер телефона';
         }
         else {
             document.querySelector('#errorMessage4').innerHTML += 'Ваш номер телефона заполнен не верно';
-            return false;
+            return check = false;
         }
     }
 
@@ -74,10 +54,10 @@
         let email = document.querySelector('#email').value;
         let emailFormat = /^[a-zA-Z0-9_\.]{4,16}@[a-z]{3,10}\.[a-z]{2,3}$/gm;
         if (emailFormat.test(email)){
-            return true;
+            return check = true;
         } else {
             document.querySelector('#errorMessage5').innerHTML += 'Ваш email заполнен не верно';
-            return false;
+            return check = false;
         }
     }
 
@@ -85,10 +65,10 @@
         let password = document.querySelector('#password').value;
         let passwordFormat = /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}$/gm;
         if (passwordFormat.test(password)){
-            return true;
+            return check = true;
         } else {
             document.querySelector('#errorMessage6').innerHTML += 'Ваш пароль не надежный!';
-            return false;
+            return check = false;
         }
     }
 
@@ -101,6 +81,32 @@ button.addEventListener('click', function(){
     validatePassword();
 });    
 
+
+
+
+
+/* ВАЛИДАЦИЯ СТРАНЫ */
+// function vidateCountry(){
+//     //         let country = document.querySelector('#country');
+//     //         country.forEach((sel) => {
+    
+//     //             sel.addEventListener('change', () => {
+//     //             let countryNum = sel.selectedIndex;
+    
+//     //             if(countryNum === 0){
+//     //                 document.querySelector('#errorMessage3').innerHTML += 'Ваша страна не выбрана!';
+//     //             }
+//     //         }
+//     //     )
+//     //     }
+//     // )
+      
+//             if (document.querySelector('#country').value !== "0"){
+//                 return true;  
+//             } else {
+//                 document.querySelector('#errorMessage3').innerHTML += 'Ваша страна не выбрана!';
+//             }
+//     } 
 
 
 //Старая версия
