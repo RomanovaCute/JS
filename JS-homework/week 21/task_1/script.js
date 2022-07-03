@@ -4,7 +4,15 @@ let container = document.querySelector('#container');
 async function getGif() {
     let search = document.querySelector('#search').value;
 
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=lROTt63xRcpYYrPja4zQWu6YndLhGFZP&q=${search}&limit=5&offset=0&rating=g&lang=en`)
+    let apikey = 'lROTt63xRcpYYrPja4zQWu6YndLhGFZP',
+        limit = 5,
+        offset = 0,
+        raiting = 'g',
+        lang = 'ru',
+        host = 'https://api.giphy.com/v1/gifs/',
+        url = 'search';
+
+        fetch(`${host}${url}?api_key=${apikey}&q=${search}&limit=${limit}&offset=${offset}&rating=${raiting}&lang=${lang}`)
         .then(response => response.json())
         .then(response => {
             console.log(response);
@@ -21,13 +29,6 @@ async function getGif() {
     container.innerHTML = '';
     document.querySelector('#search').value = '';
 }
-
-    
-     
-    
-    
-
-
 
     // url: 'search',
     // data: {
