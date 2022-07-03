@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btn = document.createElement('button'),
             boxRaiting = document.createElement('div');
 
+            boxRaiting.id = `hero-${item.id}`
+
         box.append(boxInfo);
         box.append(boxRaiting); 
         box.append(btn);
@@ -75,5 +77,7 @@ list.addEventListener('click', (e) => {
     // console.log(heroArr[elemId].raiting);
 
     localStorage.setItem('heroArr', JSON.stringify(heroArr)); //доработать, чтобы изменение сохранялось только опредленной карточки
-    document.location.reload();
+    document.querySelector(`#hero-${elemId}`).innerHTML = `Рейтинг: ${selected.raiting}`;
+
+    // document.location.reload();
 })
