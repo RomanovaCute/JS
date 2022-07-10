@@ -62,6 +62,7 @@ function getGif() {
         }  
 
         document.querySelector('#search').value = ''; 
+        
 } 
 
  
