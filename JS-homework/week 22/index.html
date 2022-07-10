@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./assets/scss/main.css">
+    <link rel="stylesheet" href="dist/css/datepicker-bulma.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="avatar">
+                <div class="avatar__img">
+                    <img src="/assets/images/Bitmap.png">
+                </div>
+            </div>
+            <div class="menu">
+                <div class="menu_list">
+                    <img src="/assets/images/Stats.png" alt="status">
+                    <img src="/assets/images/Fill 370.png" alt="fill">
+                    <img src="/assets/images/Shopping.png" alt="shopping">
+                    <img src="/assets/images/Messages.png" alt="messages">
+                    <img src="/assets/images/Files.png" alt="files">
+                    <img src="/assets/images/Settings.png" alt="Settings">
+                </div>
+            </div>
+            <div class="add">
+                <button>
+                    <img src="/assets/images/Plus Icon.png" alt="click">
+                </button>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="title">
+                <h2>My Dashboard</h2>
+                <div class="filter">
+                    <p>Filter Status</p>
+                    <img src="/assets/images/Filter Icon.png">
+                </div>
+            </div>
+            <div class="myChart">
+                <div class="subtitle">
+                    <h4>Total points</h4>
+                    <div class="period">
+                        <p><span>from</span> August</p>
+                        <p><span>to</span> May</p>
+                    </div>
+                </div>
+                <canvas id="myChart" width="946px" height="254px"></canvas>
+            </div>
+            <div class="bars_container">
+                <div class="myBars">
+                <div class="persOne">
+                    <div class="persInfo">
+                        <div class="persImg">
+                            <img src="./assets/images/Bitma1.png" alt="avatar">
+                        </div>
+                        <div class="name">
+                            <p>Elliot Møller</p>
+                            <p>Copenhagen, Denmark</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <canvas id="persBar" width="392px" height="50px"></canvas>
+                    </div>
+                    <div class="persLevel"></div>
+                </div>
+                
+                <div class="persTwo">
+                    <div class="persInfo">
+                        <div class="persImg">
+                            <img src="./assets/images/Bitmap2.png" alt="avatar">
+                        </div>
+                        <div class="name">
+                            <p>Elliot Møller</p>
+                            <p>Copenhagen, Denmark</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <canvas id="persBarTwo" width="392px" height="50px"></canvas>
+                    </div>
+                    <div class="persLevel"></div>
+                </div>
+
+                <div class="persThree">
+                    <div class="persInfo">
+                        <div class="persImg">
+                            <img src="./assets/images/Bitmap3.png" alt="avatar">
+                        </div>
+                        <div class="name">
+                            <p>Niklas Döring</p>
+                            <p>Berlin, Germany</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <canvas id="persBarThree" width="392px" height="50px"></canvas>
+                    </div>
+                    <div class="persLevel"></div>
+                </div>
+                </div>
+                <div class="commonBars">
+                    <div class="subtitle">
+                    <h4>Top cities</h4>
+                    <div class="period">
+                        <p><span>for</span> September</p>
+                    </div>
+                    </div>
+                    <div class="multiBar">
+                        <canvas id="multiBar" width="392px" height="300px"></canvas>
+                    </div>
+                 </div>
+            </div>
+            
+        </div>
+
+        <div class="right">
+            <div id="Calend" type="inline"></div>
+        </div>
+    </div>
+
+
+
+    <script src="./dist/main.js"></script>
+</body>
+</html>
