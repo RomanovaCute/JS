@@ -61,8 +61,7 @@ function getGif() {
             container.append(errBox);
         }  
 
-        document.querySelector('#search').value = ''; 
-        
+        document.querySelector('#search').value = '';   
 } 
 
  
