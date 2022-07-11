@@ -251,15 +251,15 @@ const round = new Chart(ctxRound, {
       'В процессе'
     ],
     datasets: [{
-    label: 'My First Dataset',
-    data: [10, 20, 30],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
+      label: 'My First Dataset',
+      data: [0, 0, 0],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+      ],
+      hoverOffset: 4
+    }]
   }
 })
 
@@ -272,38 +272,64 @@ let taskDone = document.querySelector('#done');
    let taskBox = document.querySelector('#taskBox');
 
 let tasksDone;
+let tasksProcess;
 
 document.addEventListener('DOMContentLoaded', () => {
   tasksDone = JSON.parse(localStorage.getItem('done')) || [];
+  tasksProcess = JSON.parse(localStorage.getItem('process')) || [];
   console.log(tasksDone);
+  console.log(tasksProcess);
 
   tasksDone.map(task => {
-    const box = document.createElement('div');
-    box.innerHTML = task;
+    const boxOne = document.createElement('div');
+    boxOne.innerHTML = task;
 
-    taskBox.append(box);
+    taskBox.append(boxOne);
+  })
+
+  tasksProcess.map(task => {
+    const boxTwo = document.createElement('div');
+    boxTwo.innerHTML = task;
+
+    taskBox.append(boxTwo);
   })
 })
 
 
-function setData(valueDone){
+function setDataDone(valueDone, valueProc){
   tasksDone.push(valueDone);
   localStorage.setItem('done', JSON.stringify(tasksDone))
+
+  tasksProcess.push(valueProc);
+  localStorage.setItem('process', JSON.stringify(tasksProcess))
+  // localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1]))
 }
+
 
 function postTask(){
   const valueDone = taskDone.value;
   const valueProc = taskPocess.value;
   const valueDead = taskDeadline.value;
 
-  setData(valueDone);
-  const newListItem = document.createElement('div');
-  newListItem.innerHTML = valueDone;
-  taskBox.append(newListItem);
+  setDataDone(valueDone, valueProc);
+  const newListDone = document.createElement('div');
+  const newListProcess = document.createElement('div');
+
+  newListDone.innerHTML = valueDone;
+  newListProcess.innerHTML = valueProc;
+  taskBox.append(newListDone);
+  taskBox.append(newListProcess);
+
   taskDone.value = '';
+  taskPocess.value = '';
 
   if(valueDone){
-    round.data.datasets[0].data =+ 10;
+    round.data.datasets[0].data[1] = round.data.datasets[0].data[1] + 1;
+    round.update();
+    // localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1]))
+  }
+  if(valueProc){
+    round.data.datasets[0].data[2] = round.data.datasets[0].data[2] + 1;
     round.update();
   }
 }
