@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./assets/scss/main.css">
-    <link rel="stylesheet" href="dist/css/datepicker-bulma.css" rel="stylesheet" />
+    <link rel="stylesheet" href="main.css">
+    <link href="./node_modules/vanillajs-datepicker/dist/css/datepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker-bs5.min.css">
 </head>
 <body>
     <div class="container">
@@ -37,15 +38,18 @@
                 <h2>My Dashboard</h2>
                 <div class="filter">
                     <p>Filter Status</p>
-                    <img src="/assets/images/Filter Icon.png">
+                    <div class="fillter_bth">
+                        <img src="/assets/images/Filter Icon.png">
+                    </div>
                 </div>
             </div>
             <div class="myChart">
                 <div class="subtitle">
                     <h4>Total points</h4>
-                    <div class="period">
-                        <p><span>from</span> August</p>
-                        <p><span>to</span> May</p>
+                    <div id="calendRange">
+                        <input type="text" name="start">
+                        <span>to</span>
+                        <input type="text" name="end"> 
                     </div>
                 </div>
                 <canvas id="myChart" width="946px" height="254px"></canvas>
@@ -117,11 +121,30 @@
 
         <div class="right">
             <div id="Calend" type="inline"></div>
+            <div id="Round">
+                <canvas id="roundChart"></canvas>
+            </div>
+            <div class="task_list">
+                <div>Сделано:
+                    <input id="done" type="text">
+                </div>
+                <div>В процессе:
+                    <input id="process" type="text">
+                </div>
+                <div>Не сделано:
+                    <input id="deadline" type="text">
+                </div>
+                <button id="taskBtn">Добавить</button>
+            </div>
+            
+            <div id="taskBox"></div>
         </div>
     </div>
 
 
 
     <script src="./dist/main.js"></script>
+    <script src="/local.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script> -->
 </body>
 </html>

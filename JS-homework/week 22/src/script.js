@@ -220,6 +220,82 @@ const multiBar = new Chart(ctxMulti, {
 
 
 import { Datepicker } from 'vanillajs-datepicker';
+import ru from 'vanillajs-datepicker/locales/ru';
+Object.assign(Datepicker.locales, ru);
 
 const elem = document.getElementById('Calend');
-const datepicker = new Datepicker(elem, {});
+const datepicker = new Datepicker(elem, {
+  showDaysOfWeek: true,
+  showOnFocus: true,
+  todayBtn: true,
+  todayHighlight: true,
+  language: 'ru',
+});
+
+
+import { DateRangePicker } from 'vanillajs-datepicker';
+const item = document.getElementById('calendRange');
+const rangepicker = new DateRangePicker(item, {
+  language: 'ru',
+  buttonClass: 'btn'
+}); 
+
+
+const ctxRound = document.getElementById('roundChart');
+const round = new Chart(ctxRound, {
+  type: 'doughnut',
+  data: {
+    labels: [
+      'Не сделано',
+      'Сделано',
+      'В процессе'
+    ],
+    datasets: [{
+    label: 'My First Dataset',
+    data: [10, 20, 30],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+  }
+})
+
+// document.querySelector('#taskBtn').addEventListener('click', postTask());
+
+// // let taskDone = document.querySelector('#done').value,
+// //     taskPocess = document.querySelector('#process').value,
+// //     taskDeadline = document.querySelector('#deadline').value,
+//     let input = document.querySelector('input').value,
+//         list = document.querySelector('#list');
+
+// let tasks;
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   tasks = JSON.parse(localStorage.getItem('task')) || [];
+//   console.log(tasks);
+
+//   tasks.map(task => {
+//     const box = document.createElement('div');
+//     box.innerHTML = task;
+
+//     list.append(box);
+//   })
+// })
+
+// function setData(taskValue){
+//   tasks.push(taskValue);
+//   localStorage.setItem('task', JSON.stringify(tasks))
+// }
+
+// function postTask(){
+//   const taskValue = input;
+
+//   setData(taskValue);
+//   const newListItem = document.createElement('div');
+//   newListItem.innerHTML = value;
+//   list.append(newListItem);
+// }
+
