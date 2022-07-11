@@ -263,39 +263,48 @@ const round = new Chart(ctxRound, {
   }
 })
 
-// document.querySelector('#taskBtn').addEventListener('click', postTask());
+document.querySelector('#taskBtn').addEventListener('click', postTask);
 
-// // let taskDone = document.querySelector('#done').value,
-// //     taskPocess = document.querySelector('#process').value,
-// //     taskDeadline = document.querySelector('#deadline').value,
-//     let input = document.querySelector('input').value,
-//         list = document.querySelector('#list');
+let taskDone = document.querySelector('#done');
+   let taskPocess = document.querySelector('#process');
+   let taskDeadline = document.querySelector('#deadline');
+    // input = document.querySelector('input').value,
+   let taskBox = document.querySelector('#taskBox');
 
-// let tasks;
+let tasksDone;
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   tasks = JSON.parse(localStorage.getItem('task')) || [];
-//   console.log(tasks);
+document.addEventListener('DOMContentLoaded', () => {
+  tasksDone = JSON.parse(localStorage.getItem('done')) || [];
+  console.log(tasksDone);
 
-//   tasks.map(task => {
-//     const box = document.createElement('div');
-//     box.innerHTML = task;
+  tasksDone.map(task => {
+    const box = document.createElement('div');
+    box.innerHTML = task;
 
-//     list.append(box);
-//   })
-// })
+    taskBox.append(box);
+  })
+})
 
-// function setData(taskValue){
-//   tasks.push(taskValue);
-//   localStorage.setItem('task', JSON.stringify(tasks))
-// }
 
-// function postTask(){
-//   const taskValue = input;
+function setData(valueDone){
+  tasksDone.push(valueDone);
+  localStorage.setItem('done', JSON.stringify(tasksDone))
+}
 
-//   setData(taskValue);
-//   const newListItem = document.createElement('div');
-//   newListItem.innerHTML = value;
-//   list.append(newListItem);
-// }
+function postTask(){
+  const valueDone = taskDone.value;
+  const valueProc = taskPocess.value;
+  const valueDead = taskDeadline.value;
+
+  setData(valueDone);
+  const newListItem = document.createElement('div');
+  newListItem.innerHTML = valueDone;
+  taskBox.append(newListItem);
+  taskDone.value = '';
+
+  if(valueDone){
+    round.data.datasets[0].data =+ 10;
+    round.update();
+  }
+}
 
