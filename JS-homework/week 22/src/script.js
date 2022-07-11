@@ -268,17 +268,21 @@ document.querySelector('#taskBtn').addEventListener('click', postTask);
 let taskDone = document.querySelector('#done');
    let taskPocess = document.querySelector('#process');
    let taskDeadline = document.querySelector('#deadline');
-    // input = document.querySelector('input').value,
    let taskBox = document.querySelector('#taskBox');
 
-let tasksDone;
-let tasksProcess;
+let dataBase = [10, 20, 30];
+let tasksDone,
+    tasksProcess,
+    tasksDeadline;
 
 document.addEventListener('DOMContentLoaded', () => {
   tasksDone = JSON.parse(localStorage.getItem('done')) || [];
   tasksProcess = JSON.parse(localStorage.getItem('process')) || [];
+  tasksDeadline = JSON.parse(localStorage.getItem('deadline')) || [];
+  
   console.log(tasksDone);
   console.log(tasksProcess);
+  console.log(tasksDeadline);
 
   tasksDone.map(task => {
     const boxOne = document.createElement('div');
@@ -293,16 +297,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     taskBox.append(boxTwo);
   })
+
+  tasksDeadline.map(task => {
+    const boxThree = document.createElement('div');
+    boxThree.innerHTML = task;
+
+    taskBox.append(boxThree);
+  })
 })
 
 
-function setDataDone(valueDone, valueProc){
+function setDataDone(valueDone, valueProc, valueDead){
   tasksDone.push(valueDone);
   localStorage.setItem('done', JSON.stringify(tasksDone))
 
   tasksProcess.push(valueProc);
   localStorage.setItem('process', JSON.stringify(tasksProcess))
   // localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1]))
+
+  tasksDeadline.push(valueDead);
+  localStorage.setItem('deadline', JSON.stringify(tasksDeadline))
 }
 
 
@@ -311,17 +325,22 @@ function postTask(){
   const valueProc = taskPocess.value;
   const valueDead = taskDeadline.value;
 
-  setDataDone(valueDone, valueProc);
+  setDataDone(valueDone, valueProc, valueDead);
   const newListDone = document.createElement('div');
   const newListProcess = document.createElement('div');
+  const newListDeadline = document.createElement('div');
 
   newListDone.innerHTML = valueDone;
   newListProcess.innerHTML = valueProc;
+  newListDeadline.innerHTML = valueDead;
+
   taskBox.append(newListDone);
   taskBox.append(newListProcess);
+  taskBox.append(newListDeadline);
 
   taskDone.value = '';
   taskPocess.value = '';
+  taskDeadline.value = '';
 
   if(valueDone){
     round.data.datasets[0].data[1] = round.data.datasets[0].data[1] + 1;
@@ -330,6 +349,10 @@ function postTask(){
   }
   if(valueProc){
     round.data.datasets[0].data[2] = round.data.datasets[0].data[2] + 1;
+    round.update();
+  }
+  if(valueDead){
+    round.data.datasets[0].data[0] = round.data.datasets[0].data[0] + 1;
     round.update();
   }
 }
