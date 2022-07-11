@@ -9,6 +9,22 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 34px 20px 0 20px;
+
+    .avatar > .avatar__img > img{
+        border-radius: 50%;
+    }
+
+    .add > button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #29CB97;
+        border-radius: 20px;
+        padding: 13px 14px;
+        cursor: pointer;
+        border: none;
+    }
 
     .menu_list{
         display: flex;

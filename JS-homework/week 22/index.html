@@ -11,7 +11,8 @@
 </head>
 <body>
     <div class="container">
-        <div class="left">
+        <div class="wrapper">
+            <div class="left">
             <div class="avatar">
                 <div class="avatar__img">
                     <img src="/assets/images/Bitmap.png">
@@ -126,19 +127,21 @@
             </div>
             <div class="task_list">
                 <div>Сделано:
-                    <input id="done" type="text">
+                    <input id="done" class="form-control" type="text">
                 </div>
                 <div>В процессе:
-                    <input id="process" type="text">
+                    <input id="process" class="form-control" type="text">
                 </div>
                 <div>Не сделано:
-                    <input id="deadline" type="text">
+                    <input id="deadline" class="form-control" type="text">
                 </div>
-                <button id="taskBtn">Добавить</button>
+                <button id="taskBtn" type="button" class="btn btn-light">Добавить</button>
             </div>
             
             <div id="taskBox"></div>
         </div>
+        </div>
+        
     </div>
 
 

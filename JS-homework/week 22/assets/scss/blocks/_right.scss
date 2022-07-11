@@ -1,9 +1,25 @@
-#Calend{
+.right{
+    width: 328px;
     padding: 30px;
+}
+#Calend, #Round{
+    display: flex;
+    justify-content: center;
 }
 
 .task_list{
     display: flex;
     flex-direction: column;
     margin-top: 40px;
+    align-items: center;
+    grid-gap: 10px
 }
+
+#taskBox > div:not(:last-child){
+        margin-bottom: 5px;
+    }
+
+// .task_list:not(:last-child){
+//         margin-bottom: 10px;
+//     }
+

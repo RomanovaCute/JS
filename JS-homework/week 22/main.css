@@ -686,6 +686,9 @@ template {
 
 .container {
   width: 100%;
+}
+
+.container .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -693,7 +696,8 @@ template {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  grid-gap: 32px;
+  width: 1440px;
+  margin: 0 auto;
 }
 
 .container {
@@ -719,6 +723,28 @@ template {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 34px 20px 0 20px;
+}
+
+.left .avatar > .avatar__img > img {
+  border-radius: 50%;
+}
+
+.left .add > button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #29CB97;
+  border-radius: 20px;
+  padding: 13px 14px;
+  cursor: pointer;
+  border: none;
 }
 
 .left .menu_list {
@@ -734,7 +760,7 @@ template {
 
 .middle {
   width: 947px;
-  padding: 30px;
+  padding: 30px 33px 0 41px;
   background-color: #F5F6FA;
 }
 
@@ -853,10 +879,35 @@ template {
 .middle .commonBars {
   background-color: white;
   border-radius: 5px;
+  margin-top: 40px;
 }
 
-#Calend {
+.middle .commonBars .subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 30px 30px 0 30px;
+  font-size: 20px;
+}
+
+.right {
+  width: 328px;
   padding: 30px;
+}
+
+#Calend, #Round {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .task_list {
@@ -868,5 +919,13 @@ template {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-top: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 10px;
+}
+
+#taskBox > div:not(:last-child) {
+  margin-bottom: 5px;
 }
 /*# sourceMappingURL=main.css.map */

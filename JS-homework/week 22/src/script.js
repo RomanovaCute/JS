@@ -271,6 +271,7 @@ let taskDone = document.querySelector('#done');
    let taskBox = document.querySelector('#taskBox');
 
 let dataBase = [10, 20, 30];
+
 let tasksDone,
     tasksProcess,
     tasksDeadline;
@@ -313,7 +314,6 @@ function setDataDone(valueDone, valueProc, valueDead){
 
   tasksProcess.push(valueProc);
   localStorage.setItem('process', JSON.stringify(tasksProcess))
-  // localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1]))
 
   tasksDeadline.push(valueDead);
   localStorage.setItem('deadline', JSON.stringify(tasksDeadline))
@@ -327,6 +327,8 @@ function postTask(){
 
   setDataDone(valueDone, valueProc, valueDead);
   const newListDone = document.createElement('div');
+  newListDone.setAttribute('id', 'ItemDone');
+
   const newListProcess = document.createElement('div');
   const newListDeadline = document.createElement('div');
 
@@ -345,15 +347,27 @@ function postTask(){
   if(valueDone){
     round.data.datasets[0].data[1] = round.data.datasets[0].data[1] + 1;
     round.update();
-    // localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1]))
+    localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1])); 
   }
   if(valueProc){
     round.data.datasets[0].data[2] = round.data.datasets[0].data[2] + 1;
     round.update();
+    localStorage.setItem('procRound', JSON.stringify(round.data.datasets[0].data[2])); 
   }
   if(valueDead){
     round.data.datasets[0].data[0] = round.data.datasets[0].data[0] + 1;
     round.update();
+    localStorage.setItem('deadRound', JSON.stringify(round.data.datasets[0].data[3]));
   }
+
+  // let clearBtn = document.createElement('button');
+  // clearBtn.setAttribute('id', 'clearBtn');
+  // clearBtn.innerHTML = 'Очистить';
+  // taskBox.append(clearBtn);
+
+  // document.querySelector('#clearBtn').addEventListener('click', clearList);
+  // function clearList(){
+  //   taskBox.innerHTML = '';
+  // }
 }
 
