@@ -268,12 +268,29 @@ let taskDone = document.querySelector('#done'),
     taskBox = document.querySelector('#taskBox');
 
 let listShow;
+let roundShow;
 let tasksDone,
     tasksProcess,
     tasksDeadline;
 
 document.addEventListener('DOMContentLoaded', () => {
   listShow = JSON.parse(localStorage.getItem('taskList')) || [];
+  console.log(listShow);
+  // if(localStorage.getItem('roundShow')){
+  //   roundShow = JSON.parse(localStorage.getItem('roundShow'));
+  // }
+
+
+  for(let key in listShow){              //получаем доступ к ключам объекта done
+    for(let item of listShow[key]){      //получаем доступ к массивам с объектами
+      console.log(item.text);
+
+      const box = document.createElement('div');
+      box.innerHTML = item.text;         //выводим содержимое объекта под ключом text
+      taskBox.append(box);
+    }
+  }
+  
 
   // tasksDone = JSON.parse(localStorage.getItem('done')) || [];
   // tasksProcess = JSON.parse(localStorage.getItem('process')) || [];
@@ -308,6 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setData(data){
   localStorage.setItem('taskList', JSON.stringify(data));
+  // localStorage.setItem('roundShow', JSON.stringify(roundShow));
 }
 
 let done = [],
@@ -336,9 +354,15 @@ function postTask(){
      data = JSON.parse(dataCheck);
   }
 
-  data.done.push(new Task(valueDone));
-  data.process.push(new Task(valueProc));
-  data.deadline.push(new Task(valueDead));
+  if(valueDone !== ''){
+    data.done.push(new Task(valueDone));
+  }
+  if(valueProc !== ''){
+    data.process.push(new Task(valueProc));
+  }
+  if(valueDead !== ''){
+    data.deadline.push(new Task(valueDead));
+  }
 
   console.log(data);
 
@@ -358,6 +382,15 @@ function postTask(){
   taskDone.value = '';
   taskPocess.value = '';
   taskDeadline.value = '';
+
+
+    round.data.datasets[0].data[1] = data.done.length,
+    round.data.datasets[0].data[2] = data.process.length,
+    round.data.datasets[0].data[0] = data.deadline.length
+  
+  
+  round.update();
+
 }
 
 
@@ -382,12 +415,7 @@ function postTask(){
 
 
 
-  // round.data.datasets[0].data[1] = data.done.length;
-  // round.update();
-  // round.data.datasets[0].data[2] = data.process.length;
-  // round.update();
-  // round.data.datasets[0].data[0] = data.deadline.length;
-  // round.update();
+ 
 
   // if(valueDone){
   //   round.data.datasets[0].data[1] = round.data.datasets[0].data[1] + 1;
