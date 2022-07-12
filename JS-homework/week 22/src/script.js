@@ -268,18 +268,24 @@ let taskDone = document.querySelector('#done'),
     taskBox = document.querySelector('#taskBox');
 
 let listShow;
-let roundShow;
+let showRound;
 let tasksDone,
     tasksProcess,
-    tasksDeadline;
+    tasksDeadline,
+    roundInfo;
 
 document.addEventListener('DOMContentLoaded', () => {
   listShow = JSON.parse(localStorage.getItem('taskList')) || [];
   console.log(listShow);
-  // if(localStorage.getItem('roundShow')){
-  //   roundShow = JSON.parse(localStorage.getItem('roundShow'));
-  // }
 
+  if(localStorage.getItem('roundInfo')){
+    showRound = JSON.parse(localStorage.getItem('roundInfo'));
+    round.data.datasets[0].data = showRound;
+  } else {
+    round.data.datasets[0].data = [1, 1, 1]
+  }
+  round.update();
+  console.log(showRound);
 
   for(let key in listShow){              //получаем доступ к ключам объекта done
     for(let item of listShow[key]){      //получаем доступ к массивам с объектами
@@ -290,42 +296,12 @@ document.addEventListener('DOMContentLoaded', () => {
       taskBox.append(box);
     }
   }
-  
-
-  // tasksDone = JSON.parse(localStorage.getItem('done')) || [];
-  // tasksProcess = JSON.parse(localStorage.getItem('process')) || [];
-  // tasksDeadline = JSON.parse(localStorage.getItem('deadline')) || [];
-  
-  // console.log(tasksDone);
-  // console.log(tasksProcess);
-  // console.log(tasksDeadline);
-
-  // tasksDone.map(task => {
-  //   const boxOne = document.createElement('div');
-  //   boxOne.innerHTML = task;
-
-  //   taskBox.append(boxOne);
-  // })
-
-  // tasksProcess.map(task => {
-  //   const boxTwo = document.createElement('div');
-  //   boxTwo.innerHTML = task;
-
-  //   taskBox.append(boxTwo);
-  // })
-
-  // tasksDeadline.map(task => {
-  //   const boxThree = document.createElement('div');
-  //   boxThree.innerHTML = task;
-
-  //   taskBox.append(boxThree);
-  // })
 })
 
 
-function setData(data){
+function setData(data, roundInfo){
   localStorage.setItem('taskList', JSON.stringify(data));
-  // localStorage.setItem('roundShow', JSON.stringify(roundShow));
+  localStorage.setItem('roundInfo', JSON.stringify(roundInfo));
 }
 
 let done = [],
@@ -344,9 +320,9 @@ function postTask(){
 }
 
   let data = {
+    deadline,
     done,
-    process,
-    deadline
+    process
   }
 
   let dataCheck = localStorage.getItem('taskList');
@@ -354,19 +330,27 @@ function postTask(){
      data = JSON.parse(dataCheck);
   }
 
+
+  if(valueDead !== ''){
+    data.deadline.push(new Task(valueDead));
+  }
   if(valueDone !== ''){
     data.done.push(new Task(valueDone));
   }
   if(valueProc !== ''){
     data.process.push(new Task(valueProc));
   }
-  if(valueDead !== ''){
-    data.deadline.push(new Task(valueDead));
-  }
-
   console.log(data);
 
-  setData(data);
+   roundInfo = [
+    round.data.datasets[0].data[0] = data.deadline.length,
+    round.data.datasets[0].data[1] = data.done.length,
+    round.data.datasets[0].data[2] = data.process.length
+   ]
+  
+  round.update();
+
+  setData(data, roundInfo);
   const newListDone = document.createElement('div');
   newListDone.setAttribute('id', 'ItemDone');
 
@@ -382,56 +366,7 @@ function postTask(){
   taskDone.value = '';
   taskPocess.value = '';
   taskDeadline.value = '';
-
-
-    round.data.datasets[0].data[1] = data.done.length,
-    round.data.datasets[0].data[2] = data.process.length,
-    round.data.datasets[0].data[0] = data.deadline.length
-  
-  
-  round.update();
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-  // if(valueDone){
-  //   round.data.datasets[0].data[1] = round.data.datasets[0].data[1] + 1;
-  //   round.update();
-  //   localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1])); 
-  // }
-  // if(valueProc){
-  //   round.data.datasets[0].data[2] = round.data.datasets[0].data[2] + 1;
-  //   round.update();
-  //   localStorage.setItem('procRound', JSON.stringify(round.data.datasets[0].data[2])); 
-  // }
-  // if(valueDead){
-  //   round.data.datasets[0].data[0] = round.data.datasets[0].data[0] + 1;
-  //   round.update();
-  //   localStorage.setItem('deadRound', JSON.stringify(round.data.datasets[0].data[3]));
-  // }
 
   // let clearBtn = document.createElement('button');
   // clearBtn.setAttribute('id', 'clearBtn');
