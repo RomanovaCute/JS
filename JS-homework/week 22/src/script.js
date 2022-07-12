@@ -1,6 +1,12 @@
+
+// Библиотека Chart.js
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
+// Библиотека календарей
+import { Datepicker } from 'vanillajs-datepicker';
+import ru from 'vanillajs-datepicker/locales/ru';
+Object.assign(Datepicker.locales, ru);
 
 const ctx = document.getElementById('myChart');
 const labels = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
@@ -189,11 +195,6 @@ const multiBar = new Chart(ctxMulti, {
   },
   options:{
     indexAxis: 'y',
-    // plugins: {
-    //   legend: {
-    //     display: false
-    //   }
-    // },
     scales: {
       // x: {
       //   grid: {
@@ -218,10 +219,6 @@ const multiBar = new Chart(ctxMulti, {
   }
 })
 
-
-import { Datepicker } from 'vanillajs-datepicker';
-import ru from 'vanillajs-datepicker/locales/ru';
-Object.assign(Datepicker.locales, ru);
 
 const elem = document.getElementById('Calend');
 const datepicker = new Datepicker(elem, {
@@ -265,67 +262,87 @@ const round = new Chart(ctxRound, {
 
 document.querySelector('#taskBtn').addEventListener('click', postTask);
 
-let taskDone = document.querySelector('#done');
-   let taskPocess = document.querySelector('#process');
-   let taskDeadline = document.querySelector('#deadline');
-   let taskBox = document.querySelector('#taskBox');
+let taskDone = document.querySelector('#done'),
+    taskPocess = document.querySelector('#process'),
+    taskDeadline = document.querySelector('#deadline'),
+    taskBox = document.querySelector('#taskBox');
 
-let dataBase = [10, 20, 30];
-
+let listShow;
 let tasksDone,
     tasksProcess,
     tasksDeadline;
 
 document.addEventListener('DOMContentLoaded', () => {
-  tasksDone = JSON.parse(localStorage.getItem('done')) || [];
-  tasksProcess = JSON.parse(localStorage.getItem('process')) || [];
-  tasksDeadline = JSON.parse(localStorage.getItem('deadline')) || [];
+  listShow = JSON.parse(localStorage.getItem('taskList')) || [];
+
+  // tasksDone = JSON.parse(localStorage.getItem('done')) || [];
+  // tasksProcess = JSON.parse(localStorage.getItem('process')) || [];
+  // tasksDeadline = JSON.parse(localStorage.getItem('deadline')) || [];
   
-  console.log(tasksDone);
-  console.log(tasksProcess);
-  console.log(tasksDeadline);
+  // console.log(tasksDone);
+  // console.log(tasksProcess);
+  // console.log(tasksDeadline);
 
-  tasksDone.map(task => {
-    const boxOne = document.createElement('div');
-    boxOne.innerHTML = task;
+  // tasksDone.map(task => {
+  //   const boxOne = document.createElement('div');
+  //   boxOne.innerHTML = task;
 
-    taskBox.append(boxOne);
-  })
+  //   taskBox.append(boxOne);
+  // })
 
-  tasksProcess.map(task => {
-    const boxTwo = document.createElement('div');
-    boxTwo.innerHTML = task;
+  // tasksProcess.map(task => {
+  //   const boxTwo = document.createElement('div');
+  //   boxTwo.innerHTML = task;
 
-    taskBox.append(boxTwo);
-  })
+  //   taskBox.append(boxTwo);
+  // })
 
-  tasksDeadline.map(task => {
-    const boxThree = document.createElement('div');
-    boxThree.innerHTML = task;
+  // tasksDeadline.map(task => {
+  //   const boxThree = document.createElement('div');
+  //   boxThree.innerHTML = task;
 
-    taskBox.append(boxThree);
-  })
+  //   taskBox.append(boxThree);
+  // })
 })
 
 
-function setDataDone(valueDone, valueProc, valueDead){
-  tasksDone.push(valueDone);
-  localStorage.setItem('done', JSON.stringify(tasksDone))
-
-  tasksProcess.push(valueProc);
-  localStorage.setItem('process', JSON.stringify(tasksProcess))
-
-  tasksDeadline.push(valueDead);
-  localStorage.setItem('deadline', JSON.stringify(tasksDeadline))
+function setData(data){
+  localStorage.setItem('taskList', JSON.stringify(data));
 }
 
+let done = [],
+    process = [],
+    deadline = [];
 
 function postTask(){
   const valueDone = taskDone.value;
   const valueProc = taskPocess.value;
   const valueDead = taskDeadline.value;
 
-  setDataDone(valueDone, valueProc, valueDead);
+  class Task{
+  constructor(text){
+    this.text = text;
+  }
+}
+
+  let data = {
+    done,
+    process,
+    deadline
+  }
+
+  let dataCheck = localStorage.getItem('taskList');
+  if(dataCheck){
+     data = JSON.parse(dataCheck);
+  }
+
+  data.done.push(new Task(valueDone));
+  data.process.push(new Task(valueProc));
+  data.deadline.push(new Task(valueDead));
+
+  console.log(data);
+
+  setData(data);
   const newListDone = document.createElement('div');
   newListDone.setAttribute('id', 'ItemDone');
 
@@ -336,29 +353,57 @@ function postTask(){
   newListProcess.innerHTML = valueProc;
   newListDeadline.innerHTML = valueDead;
 
-  taskBox.append(newListDone);
-  taskBox.append(newListProcess);
-  taskBox.append(newListDeadline);
+  taskBox.append(newListDone, newListProcess, newListDeadline);
 
   taskDone.value = '';
   taskPocess.value = '';
   taskDeadline.value = '';
+}
 
-  if(valueDone){
-    round.data.datasets[0].data[1] = round.data.datasets[0].data[1] + 1;
-    round.update();
-    localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1])); 
-  }
-  if(valueProc){
-    round.data.datasets[0].data[2] = round.data.datasets[0].data[2] + 1;
-    round.update();
-    localStorage.setItem('procRound', JSON.stringify(round.data.datasets[0].data[2])); 
-  }
-  if(valueDead){
-    round.data.datasets[0].data[0] = round.data.datasets[0].data[0] + 1;
-    round.update();
-    localStorage.setItem('deadRound', JSON.stringify(round.data.datasets[0].data[3]));
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // round.data.datasets[0].data[1] = data.done.length;
+  // round.update();
+  // round.data.datasets[0].data[2] = data.process.length;
+  // round.update();
+  // round.data.datasets[0].data[0] = data.deadline.length;
+  // round.update();
+
+  // if(valueDone){
+  //   round.data.datasets[0].data[1] = round.data.datasets[0].data[1] + 1;
+  //   round.update();
+  //   localStorage.setItem('doneRound', JSON.stringify(round.data.datasets[0].data[1])); 
+  // }
+  // if(valueProc){
+  //   round.data.datasets[0].data[2] = round.data.datasets[0].data[2] + 1;
+  //   round.update();
+  //   localStorage.setItem('procRound', JSON.stringify(round.data.datasets[0].data[2])); 
+  // }
+  // if(valueDead){
+  //   round.data.datasets[0].data[0] = round.data.datasets[0].data[0] + 1;
+  //   round.update();
+  //   localStorage.setItem('deadRound', JSON.stringify(round.data.datasets[0].data[3]));
+  // }
 
   // let clearBtn = document.createElement('button');
   // clearBtn.setAttribute('id', 'clearBtn');
@@ -369,5 +414,5 @@ function postTask(){
   // function clearList(){
   //   taskBox.innerHTML = '';
   // }
-}
+
 
