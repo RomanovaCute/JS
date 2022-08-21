@@ -1,6 +1,15 @@
 import styled from 'styled-components'
 
-const CustomCard = styled.div`
+const CustomCard = styled.div((props) => {
+    let mark = '0';
+
+    if(props.mark === 'true'){
+        mark = '1.2'
+    } else if(props.mark === 'false'){
+        mark = '1'
+    }
+
+    return `
     display: flex;
     flex-direction: column;
     width: 40%;
@@ -8,13 +17,16 @@ const CustomCard = styled.div`
 
     &:hover{
         transform: scale(1.1)
-    }
-`
+    };
+
+    scale: ${mark};
+    `
+})
 
 const TitleBox = styled.div((props) => {
     let color = 'blue';
 
-    if(props.color == 'blue'){
+    if(props.color === 'blue'){
         color = 'blue';
     } else if (props.color === 'green'){
         color = 'green';
@@ -75,10 +87,11 @@ return `
 })
 
 const Card = props => {
-    const { color } = props; 
+    const { color } = props;
+    const { mark } = props;
 
     return (
-        <CustomCard>
+        <CustomCard mark={mark}>
             <TitleBox className='title-box' color={color}>
                 <Title className="title">{props.title}</Title>
             </TitleBox>

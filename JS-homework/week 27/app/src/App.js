@@ -9,7 +9,8 @@ const plans = [
     price: '300',
     speed: '100',
     terms: 'Объем включенного трафика не ограничен',
-    color: 'blue'
+    color: 'blue',
+    mark: 'false'
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const plans = [
     price: '450',
     speed: '50',
     terms: 'Объем включенного трафика не ограничен',
-    color: 'green'
+    color: 'green',
+    mark: 'false'
   },
   {
     id: 3,
@@ -25,7 +27,8 @@ const plans = [
     price: '550',
     speed: '100',
     terms: 'Объем включенно готрафика не ограничен',
-    color: 'red'
+    color: 'red',
+    mark: 'true'
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ const plans = [
     price: '1000',
     speed: '200',
     terms: 'Объем включенно готрафика не ограничен',
-    color: 'black'
+    color: 'black',
+    mark: 'false'
   }
 ]
 
@@ -47,6 +51,7 @@ function App() {
                 speed={plan.speed}
                 terms={plan.terms}
                 color={plan.color}
+                mark={plan.mark}
                 key={plan.id}>
           </Card>
         )
