@@ -4,11 +4,32 @@ const CustomCard = styled.div`
     display: flex;
     flex-direction: column;
     width: 40%;
-    grid-gap: 10px;
+    transition: 1s;
+
+    &:hover{
+        transform: scale(1.1)
+    }
 `
-const TitleBox = styled.div`
-    background: #2b84ff;
+
+const TitleBox = styled.div((props) => {
+    let color = 'blue';
+
+    if(props.color == 'blue'){
+        color = 'blue';
+    } else if (props.color === 'green'){
+        color = 'green';
+    } else if (props.color === 'red'){
+        color = 'red';
+    } else if (props.color === 'black'){
+        color = 'black';
+    }
+
+return `
+    background: ${color};
 `
+})
+
+
 const Title = styled.h3`
     font-size: 16px;
     color: #fff
@@ -16,12 +37,6 @@ const Title = styled.h3`
 const Main = styled.div`
     .item:not(:last-child){
         margin-bottom: 10px;
-    }
-
-    .price{
-        color: #fff;
-        font-size: 20px;
-        font-weight: bold;
     }
 
     .speed,.terms{
@@ -38,16 +53,37 @@ const Main = styled.div`
     
 `
 
+const Price = styled.div((props) => {
+    let color = 'blue';
+
+    if(props.color == 'blue'){
+        color = 'blue';
+    } else if (props.color === 'green'){
+        color = 'green';
+    } else if (props.color === 'red'){
+        color = 'red';
+    } else if (props.color === 'black'){
+        color = 'black';
+    }
+
+return `
+    background: ${color};
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+`
+})
+
 const Card = props => {
-    const { bgColor } = color; 
+    const { color } = props; 
 
     return (
         <CustomCard>
-            <TitleBox className='title-box'>
+            <TitleBox className='title-box' color={color}>
                 <Title className="title">{props.title}</Title>
             </TitleBox>
             <Main>
-                <div className="price item">{props.price} руб/мес</div>
+                <Price className='item' color={color}>{props.price} руб/мес</Price>
                 <div className="speed item">до {props.speed} Мбит/сек</div>
                 <div className="terms item">{props.terms}</div>
             </Main>
