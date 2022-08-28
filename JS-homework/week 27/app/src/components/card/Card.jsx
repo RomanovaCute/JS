@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styled from 'styled-components'
 
 const CustomCard = styled.div((props) => {
@@ -12,7 +13,7 @@ const CustomCard = styled.div((props) => {
     return `
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 15%;
     transition: 1s;
 
     &:hover{
@@ -47,9 +48,6 @@ const Title = styled.h3`
     color: #fff
 `
 const Main = styled.div`
-    .item:not(:last-child){
-        margin-bottom: 10px;
-    }
 
     .speed,.terms{
         color: #1f1e1e;
@@ -87,8 +85,12 @@ return `
 })
 
 const Card = props => {
-    const { color } = props;
-    const { mark } = props;
+    const { color, mark } = props;
+    const [isSelected, setSelected] = useState(false)
+
+    const handleClick = () => {
+        setSelected(isSelected => !isSelected)
+    }
 
     return (
         <CustomCard mark={mark}>
@@ -100,6 +102,17 @@ const Card = props => {
                 <div className="speed item">до {props.speed} Мбит/сек</div>
                 <div className="terms item">{props.terms}</div>
             </Main>
+            <div className='selecteBox'>
+                { isSelected &&
+                    <>
+                        <div className='selected'>Выбрано!</div>
+                        <button onClick={handleClick}>Отменить</button>
+                    </>
+                }
+                { !isSelected &&
+                    <button onClick={handleClick}>Выбрать</button>
+                }
+            </div>
         </CustomCard>
     );
 }
