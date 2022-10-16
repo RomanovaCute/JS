@@ -46,6 +46,10 @@
   border-style: dashed;
 }
 
+.container-name:first-of-type{
+  border: solid 2px rgb(255, 208, 0);
+}
+
 .chat-inputs{
   height: 20vh;
   display: flex;
